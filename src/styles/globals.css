@@ -35,4 +35,8 @@
     .login__page {
         @apply flex w-full items-center justify-center flex-col min-h-screen
     }
+
+    .recovery__page {
+        @apply flex w-full items-center justify-center flex-col min-h-screen
+    }
 }

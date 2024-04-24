@@ -5,6 +5,7 @@ import { Input } from '@nextui-org/input'
 import { Button } from '@nextui-org/button';
 import { Checkbox, button } from '@nextui-org/react';
 import { ViewIcon, ViewOffIcon } from '@/modules/shared';
+import Link from 'next/link';
 
 export const LoginForm = () => {
 
@@ -54,7 +55,7 @@ export const LoginForm = () => {
 
             <div className='flex items-center justify-between'>
                 <Checkbox defaultSelected size='sm'>Mantener sesion activa</Checkbox>
-                <p className='text-sm text-primary'>Recuperar contraseña</p>
+                <Link href='recovery' className='text-sm text-primary'>Recuperar contraseña</Link>
             </div>
 
             <Button
