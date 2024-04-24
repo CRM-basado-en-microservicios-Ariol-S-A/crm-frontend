@@ -1,10 +1,18 @@
-import { Button } from "@nextui-org/button";
+import { LoginForm } from '@/modules/auth';
 
-export default function() {
+
+export default function () {
     return (
-        <div>
-            <h1>Hola mundo</h1>
-            <Button radius="lg" color="primary">Hola mundo</Button>
-        </div>
+        <section className="login__page">
+            <div className="container">
+
+                <div className='mb-[3rem]'>
+                    <h1 className="text-3xl mb-2 font-semibold">Bienvenido de nuevo! 👋</h1>
+                    <p className='text-sm'>Ingresa tus credenciales y comienza a gestionar tu empresa</p>
+                </div>
+
+                <LoginForm />
+            </div>
+        </section>
     );
 }

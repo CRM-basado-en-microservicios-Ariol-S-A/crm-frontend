@@ -3,7 +3,8 @@ import { ConfigThemes } from "@nextui-org/react";
 export const lightTheme: ConfigThemes = {
     light: {
         colors: {
-            background: '#f2f7fb',
+            // background: '#f2f7fb',
+            background: '#fff',
             primary: {
                 DEFAULT: '#3a65f7',
                 '50': '#eff4ff',
