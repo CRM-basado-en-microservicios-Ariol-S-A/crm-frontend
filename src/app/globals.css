@@ -61,4 +61,38 @@
     .aplication__card:hover .aplication__card--icon {
         @apply bg-gradient-to-r from-primary to-primary-600 text-primary-foreground transition-all
     }
+
+    /* ADMIN LAYOUT */
+    .admin-layout {
+        @apply flex h-screen w-full
+    }
+
+    /* SIDE MENU */
+    .sidemenu {
+        @apply max-w-72 w-full bg-white h-screen px-8 pt-6 pb-8
+    }
+
+    .sidemenu__logo {
+        @apply text-2xl font-bold mb-6
+    }
+
+    .sidemenu__principal--item {
+        @apply bg-white justify-start text-base text-gray-500 p-0 hover:text-primary flex items-center gap-2 font-semibold
+    }
+
+    .sidemenu__principal--item:hover span {
+        @apply text-primary
+    }
+
+    .sidemenu__apps--item {
+        @apply flex items-center justify-start font-medium text-base text-gray-500 bg-white
+        hover:text-white hover:bg-primary
+    }
+
+    .sidemenu__apps--item:hover span {
+        @apply bg-white
+    }
+
+
+
 }
