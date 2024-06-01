@@ -5,16 +5,25 @@ import { Button } from '@nextui-org/button';
 
 export const RecoveryPasswordForm = () => {
 
-    const inputWrapper = "shadow-none bg-white border border-gray-400 rounded outline-none";
+    const inputWrapper = [ 
+        "shadow-none" ,
+        "bg-athens-gray",
+        "rounded-md",
+        "outline-none",
+        "group-data-[focus=true]:bg-athens-gray",
+    ]
     const label = "font-medium"
 
-
     return (
-        <form className='space-y-4'>
+        <form className='recovery__password--form'>
+
+            <div className='text-center mb-[2rem]'>
+                <h1 className="text-3xl mb-2 font-normal">Recupera tu contraseña! 👨‍💻</h1>
+                <p className='text-sm'>Ingresa tu correo electronico</p>
+            </div>
 
             <Input
-                variant='bordered'
-                size='sm'
+                variant='flat'
                 label="Correo electronico"
                 placeholder='Ingresa tu correo electronico'
                 classNames={{
@@ -26,8 +35,9 @@ export const RecoveryPasswordForm = () => {
             <Button
                 color='primary'
                 fullWidth
-                className='btn-gradient'
-            >Recuperar contraseña</Button>
+            >
+                Recuperar contraseña
+            </Button>
 
             <Link
                 className='block text-sm text-primary text-center'

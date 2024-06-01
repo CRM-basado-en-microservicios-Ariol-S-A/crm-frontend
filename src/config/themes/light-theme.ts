@@ -4,7 +4,7 @@ export const lightTheme: ConfigThemes = {
     light: {
         colors: {
             // background: '#f2f7fb',
-            background: '#fff',
+            background: '#a9a9c8',
             primary: {
                 DEFAULT: '#3a65f7',
                 '50': '#eff4ff',

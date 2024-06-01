@@ -9,23 +9,34 @@ import Link from 'next/link';
 
 export const LoginForm = () => {
 
-    const inputWrapper = "shadow-none bg-white border border-gray-400 rounded outline-none";
+    const inputWrapper = [
+        "shadow-none",
+        "bg-athens-gray",
+        "rounded-md",
+        "outline-none",
+        "group-data-[focus=true]:bg-athens-gray",
+    ]
     const label = "font-medium"
+
 
     const [showPassword, setShowPassword] = useState(false);
 
     return (
-        <form className='w-full space-y-6'>
+        <form className='login__form w-full space-y-6'>
+
+            <div className='mb-[3rem] text-center'>
+                <h1 className="text-3xl mb-2 font-normal">Bienvenido de nuevo! 👋</h1>
+                <p className='text-sm'>Ingresa tus credenciales y comienza a gestionar tu empresa</p>
+            </div>
+
             <Input
                 label="Correo electronico"
-                size='sm'
                 name='email'
                 type='email'
                 classNames={{
                     inputWrapper,
-                    label
+                    label,
                 }}
-                variant='bordered'
             />
 
             <Input
@@ -36,18 +47,17 @@ export const LoginForm = () => {
                     inputWrapper,
                     label
                 }}
-                variant='bordered'
-                type={ showPassword ? "text" : "password"}
-                endContent={ 
-                    <Button variant='light' size='sm' isIconOnly onClick={() => setShowPassword(!showPassword) }>
-                        { 
+                type={showPassword ? "text" : "password"}
+                endContent={
+                    <Button variant='light' size='sm' isIconOnly onClick={() => setShowPassword(!showPassword)}>
+                        {
                             showPassword
-                            ? (
-                                <ViewOffIcon/>
-                            )
-                            : (
-                                <ViewIcon/>
-                            )
+                                ? (
+                                    <ViewOffIcon />
+                                )
+                                : (
+                                    <ViewIcon />
+                                )
                         }
                     </Button>
                 }
@@ -61,8 +71,9 @@ export const LoginForm = () => {
             <Button
                 fullWidth
                 color='primary'
-                className='btn-gradient'
-            >Iniciar Sesion</Button>
+            >
+                Iniciar Sesion
+            </Button>
 
         </form>
     )

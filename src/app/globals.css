@@ -1,0 +1,64 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    p {
+        @apply text-slate-500 font-normal
+    }
+}
+
+@layer components {
+    .container {
+        @apply max-w-[95%] md:max-w-[80%]
+    }
+
+    .btn-gradient {
+        @apply bg-gradient-to-r from-primary-400 to-secondary-600 text-white
+    }
+}
+
+@layer utilities {
+    /* AUTH */
+
+    .login__page {
+        @apply flex w-full items-center justify-center flex-col min-h-screen
+    }
+
+    .login__form {
+        @apply bg-white max-w-xl px-8 pt-8 pb-9 rounded-lg mx-auto
+    }
+
+    .recovery__page {
+        @apply flex w-full items-center justify-center flex-col min-h-screen
+    }
+
+    .recovery__password--form {
+        @apply bg-white max-w-xl px-8 pt-8 pb-9 rounded-lg mx-auto space-y-4
+    }
+
+    /* APPS MENU */
+    .aplications__layout {
+        @apply grid grid-cols-12
+    }
+
+    .aplications__presentation {
+        @apply col-span-5 min-h-screen p-6
+    }
+
+    .aplications__presentation--logo {
+        @apply flex justify-center items-start p-8 rounded-xl h-full flex-col col-span-5 w-full bg-gradient-to-tr from-primary-600 via-blue-600 to-secondary-600
+    }
+
+    .aplication__card {
+        @apply transition-all cursor-pointer bg-white flex items-center gap-4 shadow-small hover:shadow-medium px-8 py-6 rounded-xl
+    }
+
+    .aplication__card--icon {
+        @apply  p-2 rounded-lg
+    }
+
+    .aplication__card:hover .aplication__card--icon {
+        @apply bg-gradient-to-r from-primary to-primary-600 text-primary-foreground transition-all
+    }
+}
