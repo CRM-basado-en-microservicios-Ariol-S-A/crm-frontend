@@ -4,7 +4,9 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
     return (
         <div className="admin-layout">
             <SideMenu/>
-            <h1>Hello Root Layout Admin</h1>
+            <main className="w-full">
+                { children}
+            </main>
         </div>
     );
 }

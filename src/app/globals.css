@@ -6,11 +6,15 @@
     p {
         @apply text-slate-500 font-normal
     }
+
+    section {
+        @apply pt-10
+    }
 }
 
 @layer components {
     .container {
-        @apply max-w-[95%] md:max-w-[80%]
+        @apply max-w-[95%] mx-auto
     }
 
     .btn-gradient {
