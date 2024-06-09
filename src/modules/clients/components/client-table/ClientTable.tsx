@@ -15,7 +15,7 @@ export const ClientTable = () => {
     }), []);
     
     return (
-        <section className='container'>
+        <section className='container pt-8'>
             <Table
                 topContent={ <ClientTableHeader/> }
                 aria-label="Example table with custom cells, pagination and sorting"

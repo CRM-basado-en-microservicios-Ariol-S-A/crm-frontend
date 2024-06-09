@@ -6,10 +6,6 @@
     p {
         @apply text-slate-500 font-normal
     }
-
-    section {
-        @apply pt-10
-    }
 }
 
 @layer components {
@@ -98,5 +94,13 @@
     }
 
 
+    /* NAVMENU */
+    .navbar {
+        @apply bg-white w-full py-4
+    }    
+
+    .nav__container {
+        @apply container flex justify-between items-center
+    }
 
 }
