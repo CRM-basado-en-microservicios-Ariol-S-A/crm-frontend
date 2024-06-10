@@ -1,4 +1,4 @@
-import { ClientTable, getAllClients } from "@/modules/clients";
+import { ClientTable, TotalClientsCard, getAllClients } from "@/modules/clients";
 
 export default async function ClientsPage() {
 
@@ -6,9 +6,17 @@ export default async function ClientsPage() {
 
     return (
         <>
+            <section className="container pt-8">
+
+                <TotalClientsCard
+                    totalClients={clientResponse.meta.total}
+                />
+            </section>
             <ClientTable
-                clientResponse={ clientResponse }
+                clientResponse={clientResponse}
             />
         </>
     );
 }
+
+export const revalidate = 0;
