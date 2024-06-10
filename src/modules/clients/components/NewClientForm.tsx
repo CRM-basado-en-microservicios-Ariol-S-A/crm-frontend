@@ -7,6 +7,7 @@ import { Button, Input } from '@nextui-org/react'
 import { Gps01Icon, IdentificationIcon, Invoice01Icon, UserIcon } from 'hugeicons-react'
 import { createClient } from '../actions/create-client'
 import { useRouter } from 'next/navigation'
+import { toast } from 'sonner'
 
 export const NewClientForm = () => {
 
@@ -32,13 +33,27 @@ export const NewClientForm = () => {
             nit: nit.value
         }
 
-        console.log(newClient)
         const { error, data } = await createClient(newClient);
 
-        if( error ){
+        if( Object.values(newClient).includes('') ){
+            toast.error("Ocurrio un error", { 
+                description: "Debe llenar los campos obligatorios"
+            });
             setIsLoading(false);
             return;
         }
+
+        if( error ){
+            toast.error("Ocurrio un error", { 
+                description: error
+            });
+            setIsLoading(false);
+            return;
+        }
+
+        toast.success("Cliente registrado",{
+            description: data?.message
+        })
 
         setIsLoading(false);
         router.push('/admin/clients');
@@ -52,6 +67,7 @@ export const NewClientForm = () => {
 
                     <Input
                         size='lg'
+                        isRequired
                         classNames={fullInputWrapper}
                         startContent={<UserIcon size={20} />}
                         placeholder='Ingresa un nombre'
@@ -61,6 +77,7 @@ export const NewClientForm = () => {
                     />
 
                     <Input
+                        isRequired
                         size='lg'
                         classNames={fullInputWrapper}
                         startContent={<IdentificationIcon size={20} />}
@@ -72,6 +89,7 @@ export const NewClientForm = () => {
 
                     <Input
                         size='lg'
+                        isRequired
                         classNames={fullInputWrapper}
                         startContent={<Gps01Icon size={20} />}
                         placeholder='Ingresa un departamento del pais'
@@ -82,6 +100,7 @@ export const NewClientForm = () => {
 
                     <Input
                         size='lg'
+                        isRequired
                         classNames={fullInputWrapper}
                         startContent={<Gps01Icon size={20} />}
                         placeholder='Ingresa la provincia'
@@ -92,6 +111,7 @@ export const NewClientForm = () => {
 
                     <Input
                         size='lg'
+                        isRequired
                         classNames={fullInputWrapper}
                         startContent={<Gps01Icon size={20} />}
                         placeholder='Ingresa la direccion de residencia'
@@ -102,6 +122,7 @@ export const NewClientForm = () => {
 
                     <Input
                         size='lg'
+                        isRequired
                         classNames={fullInputWrapper}
                         startContent={<Invoice01Icon size={20} />}
                         placeholder='Ingresa un nombre de factura'
@@ -112,6 +133,7 @@ export const NewClientForm = () => {
 
                     <Input
                         size='lg'
+                        isRequired
                         classNames={fullInputWrapper}
                         startContent={<IdentificationIcon size={20} />}
                         placeholder='Ingresa un NIT'

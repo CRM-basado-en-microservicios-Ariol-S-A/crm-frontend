@@ -1,6 +1,7 @@
 "use server"
 
 import apiDb from "@/lib/apiDb"
+import { isAxiosError } from "axios";
 import { revalidatePath } from "next/cache";
 
 export const deleteClient = async (id: number | string) => {
@@ -10,9 +11,20 @@ export const deleteClient = async (id: number | string) => {
 
         revalidatePath('/admin/clients')
 
-        return data.message;
+        return {
+            error: null,
+            data, 
+        };
 
     } catch (error) {
+        console.log(error);
+        if( isAxiosError(error) ){
+            return {
+                error: error.response?.data.message,
+                data: null
+            }
+        }
+
         throw error;
     }
 }

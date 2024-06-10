@@ -5,6 +5,7 @@ import { IClient, deleteClient } from '@/modules/clients';
 
 import { Alert01Icon, Delete02Icon } from 'hugeicons-react';
 import { Modal, ModalContent, ModalHeader, ModalBody, ModalFooter, Button, useDisclosure } from "@nextui-org/react";
+import { toast } from 'sonner';
 
 interface Props {
     client: IClient
@@ -19,8 +20,17 @@ export const ClientTableDeleteAction = ({ client }: Props) => {
     const handleDelete = async () => {
         setIsLoading(true);
 
-        const message = await deleteClient(client.id);
+        const { data, error } = await deleteClient(client.id);
 
+        if( error ){
+            toast.error("Ocurrio un error", {
+                description: error
+            })
+            setIsLoading(false);
+            return;
+        }
+
+        toast.success(data?.message);
         setIsLoading(false);
         onClose();
     }
@@ -59,7 +69,7 @@ export const ClientTableDeleteAction = ({ client }: Props) => {
                                 <Button color="danger" variant="light" onPress={onClose}>
                                     Cancelar
                                 </Button>
-                                <Button color="primary" onPress={handleDelete}>
+                                <Button isLoading={ isLoading } isDisabled={ isLoading } color="primary" onPress={handleDelete}>
                                     Eliminar
                                 </Button>
                             </ModalFooter>
