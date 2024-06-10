@@ -49,7 +49,7 @@ export const aplicationsMenu = [
         children: [
             {
                 name: 'Contactos',
-                path: '/admin/clients/contacts',
+                path: '/admin/clients',
             },
             {
                 name: 'Leads',

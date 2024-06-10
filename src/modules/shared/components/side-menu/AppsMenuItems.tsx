@@ -1,5 +1,5 @@
 "use client"
-import { useRouter } from 'next/navigation';
+import { useParams, usePathname, useRouter } from 'next/navigation';
 
 import { aplicationsMenu } from '@/lib';
 import { Accordion, AccordionItem, Button } from '@nextui-org/react'
@@ -7,6 +7,9 @@ import { Accordion, AccordionItem, Button } from '@nextui-org/react'
 export const AppsMenuItems = () => {
 
     const router = useRouter();
+    const pathname = usePathname();
+
+    console.log(pathname)
 
     const itemClasses = {
         titleWrapper: "p-0",
@@ -32,7 +35,10 @@ export const AppsMenuItems = () => {
                         startContent={item.icon}
                         key={item.path}
                         title={item.name}
-                        onPress={() => router.push(item.path)}
+                        classNames={{
+                            startContent: pathname.includes(item.path) && 'text-primary-500',
+                            title: pathname.includes(item.path) ? itemClasses.title + ' text-primary-500' : itemClasses.title,
+                        }}
                     >
                         {
                             item.children.map(subItem => (
@@ -41,7 +47,7 @@ export const AppsMenuItems = () => {
                                     color='primary'
                                     fullWidth
                                     key={ subItem.path }
-                                    className='sidemenu__apps--item'
+                                    className={ pathname === subItem.path ? 'sidemenu__apps--item sidemenu__apps--item-active' : 'sidemenu__apps--item'}
                                 >
                                     <span className='h-[6px] w-[6px] rounded-full bg-gray-600'></span>
                                     {subItem.name}
