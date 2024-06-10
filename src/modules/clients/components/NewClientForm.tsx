@@ -21,8 +21,6 @@ export const NewClientForm = () => {
 
         const { nombre, cargo, departamento, provincia, direccion, factura, nit } = e.target as HTMLFormElement;
 
-        console.log(nit.value)
-
         const newClient = {
             nombre: nombre.value,
             cargo: cargo.value,
