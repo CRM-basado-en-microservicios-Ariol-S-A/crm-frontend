@@ -1,8 +1,13 @@
+import { useRouter } from 'next/navigation'
+
 import { fullInputWrapper } from '@/lib'
+
 import { Button, Input } from '@nextui-org/react'
 import { PlusSignIcon, Search01Icon } from 'hugeicons-react'
 
 export const ClientTableHeader = () => {
+
+    const router = useRouter();
 
     return (
         <>
@@ -23,6 +28,7 @@ export const ClientTableHeader = () => {
                     />
                     <div className="flex gap-3">
                         <Button
+                            onPress={() => router.push('/admin/clients/new')}
                             endContent={<PlusSignIcon size={18} />}
                             size="md"
                             color='primary'
