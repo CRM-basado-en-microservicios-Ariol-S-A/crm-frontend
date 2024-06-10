@@ -1,9 +1,14 @@
-import { ClientTable } from "@/modules/clients";
+import { ClientTable, getAllClients } from "@/modules/clients";
 
-export default function ClientsPage() {
+export default async function ClientsPage() {
+
+    const clientResponse = await getAllClients();
+
     return (
         <>
-            <ClientTable/>
+            <ClientTable
+                clientResponse={ clientResponse }
+            />
         </>
     );
 }
