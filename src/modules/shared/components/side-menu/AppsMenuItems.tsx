@@ -40,6 +40,7 @@ export const AppsMenuItems = () => {
                                     onPress={() => router.push(subItem.path)}
                                     color='primary'
                                     fullWidth
+                                    key={ subItem.path }
                                     className='sidemenu__apps--item'
                                 >
                                     <span className='h-[6px] w-[6px] rounded-full bg-gray-600'></span>

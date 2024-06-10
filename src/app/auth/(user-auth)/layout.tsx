@@ -1,5 +1,5 @@
 
-export default function ({ children }: { children: React.ReactNode }) {
+export default function AuthLayout({ children }: { children: React.ReactNode }) {
     return (
         <>
             <main>
