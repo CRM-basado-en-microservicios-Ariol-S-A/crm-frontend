@@ -14,7 +14,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
                     }}
                 />
                 <SideMenu />
-                <main className="w-full">
+                <main className="w-full h-screen overflow-y-auto pb-10 relative">
                     <NavMenu />
                     {children}
                 </main>
