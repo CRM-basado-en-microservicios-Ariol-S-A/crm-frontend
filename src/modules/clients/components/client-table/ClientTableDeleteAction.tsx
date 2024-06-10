@@ -1,9 +1,29 @@
+"use client"
+import { useState } from 'react';
+
+import { IClient, deleteClient } from '@/modules/clients';
 
 import { Alert01Icon, Delete02Icon } from 'hugeicons-react';
 import { Modal, ModalContent, ModalHeader, ModalBody, ModalFooter, Button, useDisclosure } from "@nextui-org/react";
 
-export const ClientTableDeleteAction = () => {
-    const { isOpen, onOpen, onOpenChange } = useDisclosure();
+interface Props {
+    client: IClient
+}
+
+export const ClientTableDeleteAction = ({ client }: Props) => {
+
+    const [isLoading, setIsLoading] = useState(false);
+
+    const { isOpen, onOpen, onOpenChange, onClose } = useDisclosure();
+
+    const handleDelete = async () => {
+        setIsLoading(true);
+
+        const message = await deleteClient(client.id);
+
+        setIsLoading(false);
+        onClose();
+    }
 
     return (
         <>
@@ -31,7 +51,7 @@ export const ClientTableDeleteAction = () => {
                             </ModalHeader>
                             <ModalBody>
                                 <p>
-                                    ¿Esta seguro de eliminar el cliente <span className='text-primary-500'>"[Nombre]"</span>? <br />
+                                    ¿Esta seguro de eliminar el cliente <span className='text-primary-500'>"{ client.nombre }"</span>? <br />
                                     <span className='text-red-500'>Todos sus datos se perderan definitivamente</span>
                                 </p>
                             </ModalBody>
@@ -39,7 +59,7 @@ export const ClientTableDeleteAction = () => {
                                 <Button color="danger" variant="light" onPress={onClose}>
                                     Cancelar
                                 </Button>
-                                <Button color="primary" onPress={onClose}>
+                                <Button color="primary" onPress={handleDelete}>
                                     Eliminar
                                 </Button>
                             </ModalFooter>

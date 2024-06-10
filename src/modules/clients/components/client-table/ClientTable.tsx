@@ -69,7 +69,7 @@ export const ClientTable = ({ clientResponse }: Props) => {
                                 <TableCell>{cliente.factura}</TableCell>
                                 <TableCell>{cliente.nit}</TableCell>
                                 <TableCell>
-                                    <ClientTableDeleteAction />
+                                    <ClientTableDeleteAction client={ cliente } />
                                 </TableCell>
                             </TableRow>
                         ))
