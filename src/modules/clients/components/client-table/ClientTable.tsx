@@ -6,6 +6,7 @@ import { IClientsResponse } from '@/modules/clients';
 import { ClientTableHeader } from './ClientTableHeader';
 import { ClientTableDeleteAction } from './ClientTableDeleteAction';
 import { Table, TableBody, TableCell, TableColumn, TableHeader, TableRow } from '@nextui-org/react'
+import { ClientTablePagination } from './ClientTablePagination';
 
 
 interface Props {
@@ -14,7 +15,7 @@ interface Props {
 
 export const ClientTable = ({ clientResponse }: Props) => {
 
-    const { clientes } = clientResponse;
+    const { clientes, meta } = clientResponse;
 
     const classNames = React.useMemo(() => ({
         wrapper: ["bg-white", "rounded-md", "shadow-none"],
@@ -26,6 +27,7 @@ export const ClientTable = ({ clientResponse }: Props) => {
         <section className='container pt-8'>
             <Table
                 topContent={<ClientTableHeader />}
+                bottomContent={ <ClientTablePagination totalPages={ meta.lastPage } page={meta.page}/> }
                 aria-label="Example table with custom cells, pagination and sorting"
                 bottomContentPlacement="outside"
                 checkboxesProps={{
