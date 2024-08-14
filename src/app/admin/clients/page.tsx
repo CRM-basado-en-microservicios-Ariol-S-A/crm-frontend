@@ -2,12 +2,12 @@ import { ClientTable, TotalClientsCard, getAllClients } from "@/modules/clients"
 
 interface Params {
     params: { slug: string }
-    searchParams: { [key: string]: number | undefined }
+    searchParams: { [key: string]: number | string | undefined }
 }
 
 export default async function ClientsPage({ params, searchParams }: Params) {
 
-    const clientResponse = await getAllClients(searchParams.page, searchParams.limit);
+    const clientResponse = await getAllClients(searchParams.page as number, searchParams.limit as number, searchParams.search as string);
 
     return (
         <>

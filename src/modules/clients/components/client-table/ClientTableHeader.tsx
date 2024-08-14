@@ -4,10 +4,13 @@ import { fullInputWrapper } from '@/lib'
 
 import { Button, Input } from '@nextui-org/react'
 import { PlusSignIcon, Search01Icon } from 'hugeicons-react'
+import { useState } from 'react'
 
 export const ClientTableHeader = () => {
 
+    const [searchInput, setSearchInput] = useState('')
     const router = useRouter();
+
 
     return (
         <>
@@ -17,15 +20,23 @@ export const ClientTableHeader = () => {
             </div>
             <div className="flex flex-col gap-4">
                 <div className="flex justify-between gap-3 items-end">
-                    <Input
-                        isClearable
+                    <div className='flex w-full'>
+                        <Input
+                            value={searchInput}
+                            onChange={e => setSearchInput(e.target.value)}
+                            classNames={fullInputWrapper}
+                            placeholder="Buscar cliente"
+                            size="md"
+                            className='max-w-sm w-full'
 
-                        classNames={fullInputWrapper}
-                        placeholder="Buscar cliente"
-                        size="md"
-                        className='max-w-sm'
-                        startContent={<Search01Icon className="text-default-300" />}
-                    />
+                        />
+                        <Button
+                            isIconOnly
+                            onPress={() => router.push(`/admin/clients?search=${searchInput}`)}
+                            startContent={<Search01Icon size={16}/>}
+                        />
+                            
+                    </div>
                     <div className="flex gap-3">
                         <Button
                             onPress={() => router.push('/admin/clients/new')}
