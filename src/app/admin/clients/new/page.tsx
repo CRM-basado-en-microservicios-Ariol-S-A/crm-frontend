@@ -1,5 +1,6 @@
 import { TitlePage } from "@/modules/shared";
 import { NewClientForm } from "@/modules/clients";
+import { Metadata } from "next";
 
 export default function NewClientPage() {
     return (
@@ -14,4 +15,8 @@ export default function NewClientPage() {
             <NewClientForm />
         </>
     );
+}
+
+export const metadata: Metadata = {
+    title: 'Registro de clientes - CRM Ariol'
 }

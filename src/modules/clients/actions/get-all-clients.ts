@@ -13,9 +13,7 @@ export const getAllClients = async (page: number = 1, limit: number = 10, search
                 search: search && search
             }
         })
-
         return data
-
     } catch (error) {
         throw error;
     }

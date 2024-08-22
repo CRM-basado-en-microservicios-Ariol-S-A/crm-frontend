@@ -1,3 +1,5 @@
+import { Metadata } from "next";
+
 import { ClientTable, TotalClientsCard, getAllClients } from "@/modules/clients";
 
 interface Params {
@@ -16,7 +18,6 @@ export default async function ClientsPage({ params, searchParams }: Params) {
                     totalClients={clientResponse.meta.total}
                 />
             </section>
-
             <ClientTable
                 clientResponse={clientResponse}
             />
@@ -24,4 +25,8 @@ export default async function ClientsPage({ params, searchParams }: Params) {
     );
 }
 
-export const revalidate = 0;
+export const revalidate = 300;
+
+export const metadata: Metadata = {
+    title: 'Clientes - CRM Ariol'
+}
