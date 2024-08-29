@@ -1,4 +1,4 @@
-import { CheckListIcon, Home01Icon, Settings02Icon, Task01Icon, Task02Icon, UserIcon, UserMultipleIcon, icons } from 'hugeicons-react';
+import { ChartEvaluationIcon, CheckListIcon, Home01Icon, ProfileIcon, Settings02Icon, Task01Icon, UserIcon, UserMultipleIcon, icons } from 'hugeicons-react';
 
 
 export const principalMenu = [
@@ -29,14 +29,6 @@ export const aplicationsMenu = [
                 path: '/admin/inventory/brands',
             },
             {
-                name: 'Gastos/Entradas',
-                path: '/admin/inventory/incomes',
-            },
-            {
-                name: 'Ventas',
-                path: '/admin/inventory/sales',
-            },
-            {
                 name: 'Almacenes',
                 path: '/admin/inventory/warehouses',
             },
@@ -44,6 +36,25 @@ export const aplicationsMenu = [
                 name: 'Proveedores',
                 path: '/admin/inventory/providers',
             },
+        ]
+    },
+    {
+        name: 'Ingresos/Salidas',
+        path: '/admin/clients',
+        icon: <ChartEvaluationIcon size={18}/>,
+        children: [
+            {
+                name: 'Ventas',
+                path: '/admin/orders',
+            },
+            {
+                name: 'Cotizaciones',
+                path: '/admin/orders',
+            },
+            {
+                name: 'Compras',
+                path: '/admin/expenses',
+            }
         ]
     },
     {
@@ -61,6 +72,22 @@ export const aplicationsMenu = [
             }
         ]
     },
+    {
+        name: 'Usuarios',
+        path: '/admin/users',
+        icon: <UserMultipleIcon size={18}/>,
+        children: [
+            {
+                name: 'Miembros',
+                path: '/admin/users',
+            },
+            {
+                name: 'Agregar usuario',
+                path: '/admin/users/new',
+            }
+        ]
+    },
+
 ]
 
 export const additionalMenu = [
