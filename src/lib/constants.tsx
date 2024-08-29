@@ -25,6 +25,10 @@ export const aplicationsMenu = [
                 path: '/admin/inventory/productos',
             },
             {
+                name: 'Marcas',
+                path: '/admin/inventory/brands',
+            },
+            {
                 name: 'Gastos/Entradas',
                 path: '/admin/inventory/incomes',
             },

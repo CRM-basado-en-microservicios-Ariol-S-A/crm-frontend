@@ -3,6 +3,11 @@
 @tailwind utilities;
 
 @layer base {
+
+    h2 {
+        @apply text-xl font-semibold mb-4 text-gray-600
+    }
+
     p {
         @apply text-slate-500 font-normal
     }
@@ -110,4 +115,9 @@
         @apply container flex justify-between items-center
     }
 
+    /* BRANDS */
+
+    .brand__form {
+        @apply bg-white p-6 space-y-4 rounded-lg
+    }
 }

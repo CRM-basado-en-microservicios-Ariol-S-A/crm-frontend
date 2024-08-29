@@ -1,5 +1,4 @@
 
-
 export const fullInputWrapper = {
     inputWrapper: [
         "shadow-none",
@@ -10,3 +9,9 @@ export const fullInputWrapper = {
     ],
     label: "font-medium"
 }
+
+export const tableClassNames = {
+    wrapper: ["bg-white", "rounded-md", "shadow-none"],
+    th: ["bg-transparent", "text-default-500", "border-b", "border-divider", "text-base"],
+    tr: ["hover:bg-gray-400/10", "cursor-pointer", "transition-all"]
+};

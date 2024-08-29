@@ -1,15 +1,13 @@
 "use client"
-import { useParams, usePathname, useRouter } from 'next/navigation';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 
 import { aplicationsMenu } from '@/lib';
 import { Accordion, AccordionItem, Button } from '@nextui-org/react'
 
 export const AppsMenuItems = () => {
 
-    const router = useRouter();
     const pathname = usePathname();
-
-    console.log(pathname)
 
     const itemClasses = {
         titleWrapper: "p-0",
@@ -42,16 +40,21 @@ export const AppsMenuItems = () => {
                     >
                         {
                             item.children.map(subItem => (
-                                <Button
-                                    onPress={() => router.push(subItem.path)}
-                                    color='primary'
-                                    fullWidth
-                                    key={ subItem.path }
-                                    className={ pathname === subItem.path ? 'sidemenu__apps--item sidemenu__apps--item-active' : 'sidemenu__apps--item'}
+                                <Link
+                                    href={subItem.path}
+                                    key={subItem.path}
+                            
                                 >
-                                    <span className='h-[6px] w-[6px] rounded-full bg-gray-600'></span>
-                                    {subItem.name}
-                                </Button>
+                                    <Button
+                                        color='primary'
+                                        fullWidth
+                                        key={subItem.path}
+                                        className={pathname === subItem.path ? 'sidemenu__apps--item sidemenu__apps--item-active' : 'sidemenu__apps--item'}
+                                    >
+                                        <span className='h-[6px] w-[6px] rounded-full bg-gray-600'></span>
+                                        {subItem.name}
+                                    </Button>
+                                </Link>
                             ))
                         }
                     </AccordionItem>
