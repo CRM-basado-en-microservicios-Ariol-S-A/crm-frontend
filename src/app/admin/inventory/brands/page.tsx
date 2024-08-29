@@ -1,17 +1,28 @@
+import { Metadata } from 'next';
 import { BrandTable, getBrands, NewBrandForm } from '@/modules/brands';
 
-export default async function BrandsPage() {
+interface Params {
+    searchParams: { [key: string]: number | string | undefined }
+}
 
-    const brands = await getBrands();
+export default async function BrandsPage({ searchParams }: Params) {
 
-    console.log(brands)
+    const getBrandsResponse = await getBrands(
+        searchParams.page as number, 
+        searchParams.limit as number, 
+        searchParams.search as string
+    );
 
     return (
         <>
             <section className="container pt-8">
                 <NewBrandForm/>
             </section>      
-            <BrandTable/>
+            <BrandTable getBrandsResponse={ getBrandsResponse }/>
         </>
     );
+}
+
+export const metadata: Metadata = {
+    title: "Marcas - Ariol S.A"
 }

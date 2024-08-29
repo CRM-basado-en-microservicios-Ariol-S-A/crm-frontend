@@ -1,23 +1,16 @@
 "use client"
-import { FormEvent } from 'react'
 
 import { fullInputWrapper } from '@/lib'
+import { useNewBrandForm } from '@/modules/brands';
+
 import { Button, Input } from '@nextui-org/react'
 
 export const NewBrandForm = () => {
 
-    const handleSubmit = async ( e: FormEvent ) => {
-        e.preventDefault();
-        
-        const { nombre, descripcion } = e.target as HTMLFormElement;
-
-        
-
-        
-    }
+    const { handleSubmit, isLoading } = useNewBrandForm();
 
     return (
-        <form className='brand__form'>
+        <form onSubmit={ handleSubmit } className='brand__form'>
 
                 <h2>Registra una nueva marca</h2>
             <div className='flex md:flex-row items-center justify-between gap-4'>
@@ -27,10 +20,12 @@ export const NewBrandForm = () => {
                     label="Nombre"
                     placeholder='Agrega un nombre'
                     size='sm'
+                    name='nombre'
                     isRequired
                 />
 
                 <Input
+                    name='descripcion'
                     classNames={fullInputWrapper}
                     placeholder='Ingrese una pequeña descripción'
                     label="Descipcion"
@@ -39,8 +34,10 @@ export const NewBrandForm = () => {
             </div>
 
             <Button
+                type='submit'
                 color='primary'
-                className='btn-gradient'
+                isLoading={ isLoading }
+                isDisabled={ isLoading }
             >
                 Registrar Marca
             </Button>

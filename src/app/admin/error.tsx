@@ -1,5 +1,6 @@
 'use client'; // Error components must be Client Components
 
+import { Button } from '@nextui-org/react';
 import { useEffect } from 'react';
 
 export default function Error({ error, reset }: { error: Error; reset: () => void }) {
@@ -8,14 +9,18 @@ export default function Error({ error, reset }: { error: Error; reset: () => voi
     }, [error]);
 
     return (
-        <div>
-            <h1>Something wrong!</h1>
-            <p>{ error.message }</p>
-            <button
-                onClick={() => reset()}
-            >
-                Try again
-            </button>
-        </div>
+        <section className='min-h-[100%] flex items-center justify-center'>
+            <div className="container text-center">
+
+                <h1>Ocurrio un error!</h1>
+                <p>{error.message}</p>
+                <Button
+                    color='primary'
+                    onClick={() => reset()}
+                >
+                    Reintentar
+                </Button>
+            </div>
+        </section>
     );
 }

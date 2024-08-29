@@ -13,7 +13,10 @@ export const getBrands = async ( page: number = 1, limit: number = 10, search: s
                 search: search && search
             }
         })
-        return data
+        return {
+            brands: data.marcas,
+            ...data
+        }
 
     } catch (error) {
         throw error;
